@@ -1,4 +1,4 @@
-# players-unknown-game
+# God Recycle Plan
 
 ## Project setup
 ```
