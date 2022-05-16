@@ -289,6 +289,14 @@ function start(sameConnectedNumber = 3) {
           updateEarth();
           updateDevelopmentHealth();
         }
+        if (
+          regionSteps[minIndex].every(
+            (step, i) =>
+              step + 1 === regions[minIndex].districts[i].steps.length
+          )
+        ) {
+          die();
+        }
       }
     }
   });
