@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/" : "/game/",
+  publicPath: process.env.NODE_ENV === "production" ? "./" : "/game/",
   chainWebpack: (config) => {
     config.plugin("html").tap((args) => {
       args[0].title = "上帝回收计划";
