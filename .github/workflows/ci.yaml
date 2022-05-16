@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+
+      - name: Install dependencies
+        run: |
+          npm install yarn
+          yarn
+
+      - name: Build website
+        run: yarn build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

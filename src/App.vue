@@ -141,7 +141,7 @@ function start(sameConnectedNumber = 3) {
   const bestStepRotation = Math.PI / 4;
   const randomGrowTime = 60 * 2;
   const randomGrowProbability = 0.5;
-  const earth = PIXI.Sprite.from("/game/resources/images/earth.compress.png");
+  const earth = PIXI.Sprite.from("./resources/images/earth.compress.png");
   earth.anchor.set(0.367, 0.5);
   earth.position.set(earthCenter[0], earthCenter[1]);
   earth.scale.set(0.5 * 2);
@@ -159,7 +159,7 @@ function start(sameConnectedNumber = 3) {
         regionImages[index] = region.districts[index].steps.map((images) =>
           images.map((path) => {
             const item = PIXI.Sprite.from(
-              `/game/resources/images/${region.name}/${path}.png.compress.png`
+              `./resources/images/${region.name}/${path}.png.compress.png`
             );
             item.anchor.set(0.367, 0.5);
             item.position.set(earthCenter[0], earthCenter[1]);
@@ -292,8 +292,8 @@ function start(sameConnectedNumber = 3) {
   });
 
   // God
-  const godReady = PIXI.Sprite.from("/game/resources/images/god-01.png");
-  const godThrow = PIXI.Sprite.from("/game/resources/images/god-02.png");
+  const godReady = PIXI.Sprite.from("./resources/images/god-01.png");
+  const godThrow = PIXI.Sprite.from("./resources/images/god-02.png");
   [godReady, godThrow].forEach((god) => {
     god.anchor.set(0);
     god.position.set(0, 0);
@@ -317,23 +317,23 @@ function start(sameConnectedNumber = 3) {
   }> = [
     {
       type: "fire",
-      path: "/game/resources/images/res-fire.png",
+      path: "./resources/images/res-fire.png",
     },
     {
       type: "chemistry",
-      path: "/game/resources/images/res-chemistry.png",
+      path: "./resources/images/res-chemistry.png",
     },
     {
       type: "radiation",
-      path: "/game/resources/images/res-radiation.png",
+      path: "./resources/images/res-radiation.png",
     },
     {
       type: "biology",
-      path: "/game/resources/images/res-biology.png",
+      path: "./resources/images/res-biology.png",
     },
     {
       type: "battery",
-      path: "/game/resources/images/res-battery.png",
+      path: "./resources/images/res-battery.png",
     },
   ];
   const resourceCtor = (x: number) => {
@@ -348,15 +348,15 @@ function start(sameConnectedNumber = 3) {
   // }> = [
   //   {
   //     type: "monster",
-  //     path: "/game/resources/images/special-monster.png",
+  //     path: "./resources/images/special-monster.png",
   //   },
   //   {
   //     type: "storm",
-  //     path: "/game/resources/images/special-storm.png",
+  //     path: "./resources/images/special-storm.png",
   //   },
   //   {
   //     type: "wave",
-  //     path: "/game/resources/images/special-wave.png",
+  //     path: "./resources/images/special-wave.png",
   //   },
   // ];
   // const specialCtor = (x: number) => {
@@ -404,7 +404,7 @@ function start(sameConnectedNumber = 3) {
     Array(candidateSlots.length)
   ).map(() => nextItem());
   const candidateBackground = PIXI.Sprite.from(
-    "/game/resources/images/candidates.png"
+    "./resources/images/candidates.png"
   );
   candidateBackground.scale.set(0.4);
   candidateBackground.anchor.set(1.0);
@@ -604,7 +604,7 @@ function start(sameConnectedNumber = 3) {
   // Explode
   const explodeArray: PIXI.Texture[] = [...Array(15).keys()].map((n) =>
     PIXI.Texture.from(
-      `/game/resources/images/explode/explode-${String(n).padStart(2, "0")}.png`
+      `./resources/images/explode/explode-${String(n).padStart(2, "0")}.png`
     )
   );
 
@@ -819,7 +819,7 @@ function start(sameConnectedNumber = 3) {
   app.stage.addChild(developmentHealth);
   developmentHealth.transform.scale.set(1.0, 1.0);
 
-  const health = PIXI.Sprite.from("/game/resources/images/health.png");
+  const health = PIXI.Sprite.from("./resources/images/health.png");
   health.anchor.set(0, 1);
   health.position.set(0, 1080);
   health.scale.set(1.5);
@@ -861,9 +861,7 @@ function start(sameConnectedNumber = 3) {
   });
 
   // Die
-  const failure = PIXI.Sprite.from(
-    "/game/resources/images/failure.compress.png"
-  );
+  const failure = PIXI.Sprite.from("./resources/images/failure.compress.png");
   failure.anchor.set(0.5);
   failure.position.set(960, 540);
   failure.scale.set(0.4 * 2);
