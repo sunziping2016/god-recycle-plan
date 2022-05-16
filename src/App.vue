@@ -34,7 +34,47 @@ const toggleFullscreen = () => {
   }
 };
 
-start();
+const welcomeBackground = PIXI.Sprite.from("./resources/images/start.png");
+app.stage.addChild(welcomeBackground);
+
+const btnMode1 = PIXI.Sprite.from("./resources/images/btn-mode1.png");
+btnMode1.interactive = true;
+btnMode1.buttonMode = true;
+btnMode1.position.set(500, 500);
+app.stage.addChild(btnMode1);
+btnMode1.on("pointerdown", () => {
+  app.stage.removeChild(welcomeBackground);
+  app.stage.removeChild(btnMode1);
+  app.stage.removeChild(btnMode2);
+  const help = PIXI.Sprite.from("./resources/images/help-mode1.png");
+  help.interactive = true;
+  help.buttonMode = true;
+  app.stage.addChild(help);
+  help.on("pointerdown", () => {
+    app.stage.removeChild(help);
+    start();
+  });
+});
+
+const btnMode2 = PIXI.Sprite.from("./resources/images/btn-mode2.png");
+btnMode2.interactive = true;
+btnMode2.buttonMode = true;
+btnMode2.position.set(1120, 500);
+app.stage.addChild(btnMode2);
+btnMode2.on("pointerdown", () => {
+  app.stage.removeChild(welcomeBackground);
+  app.stage.removeChild(btnMode1);
+  app.stage.removeChild(btnMode2);
+  const help = PIXI.Sprite.from("./resources/images/help-mode2.png");
+  help.interactive = true;
+  help.buttonMode = true;
+  app.stage.addChild(help);
+  help.on("pointerdown", () => {
+    app.stage.removeChild(help);
+    start(1);
+  });
+});
+// start();
 
 function start(sameConnectedNumber = 3) {
   const score = ref<number>(0);
