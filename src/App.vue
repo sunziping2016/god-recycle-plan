@@ -71,7 +71,7 @@ btnMode2.on("pointerdown", () => {
   app.stage.addChild(help);
   help.on("pointerdown", () => {
     app.stage.removeChild(help);
-    start(1, 60 * 4);
+    start(1, 60 * 1.02);
   });
 });
 // start();
