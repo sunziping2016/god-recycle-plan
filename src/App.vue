@@ -71,12 +71,12 @@ btnMode2.on("pointerdown", () => {
   app.stage.addChild(help);
   help.on("pointerdown", () => {
     app.stage.removeChild(help);
-    start(1);
+    start(1, 60 * 4);
   });
 });
 // start();
 
-function start(sameConnectedNumber = 3) {
+function start(sameConnectedNumber = 3, randomGrowTime = 60 * 2) {
   const score = ref<number>(0);
   const buildingDestroyScore = 100;
   const comboEliminationScore = 60;
@@ -179,7 +179,6 @@ function start(sameConnectedNumber = 3) {
   const regionRotation = (35 / 90) * (Math.PI / 2);
   const regionBuildingOffset = Math.PI / 6;
   const bestStepRotation = Math.PI / 4;
-  const randomGrowTime = 60 * 2;
   const randomGrowProbability = 0.5;
   const earth = PIXI.Sprite.from("./resources/images/earth.compress.png");
   earth.anchor.set(0.367, 0.5);
