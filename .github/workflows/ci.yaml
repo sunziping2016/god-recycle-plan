@@ -38,4 +38,4 @@ jobs:
           publish_dir: ./dist
 
       - name: Deploy to szp15.com
-        run: rsync -avz --delete public/ sun@szp15.com:/srv/http/god/
+        run: rsync -avz --delete dist/ sun@szp15.com:/srv/http/god/
