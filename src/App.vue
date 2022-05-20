@@ -217,6 +217,19 @@ function start(sameConnectedNumber = 3, randomGrowTime = 60 * 2) {
     region.districts.map(() => 1)
   );
 
+  const regionRecoverInterval = 60 * 40;
+  let regionAccTime = 0;
+  app.ticker.add((dt) => {
+    regionAccTime += dt;
+    if (regionAccTime > regionRecoverInterval) {
+      regionAccTime -= regionRecoverInterval;
+      if (regionHp < regionMaxHp) {
+        regionHp += 1;
+        updateEnvironmentHealth();
+      }
+    }
+  });
+
   function updateEarth() {
     for (let i = 0; i < regions.length; ++i) {
       const districts = regions[i].districts;
